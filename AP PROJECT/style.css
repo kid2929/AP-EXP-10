@@ -1,0 +1,463 @@
+@import url("https://fonts.googleapis.com/css2?family=Nunito:wght@200&family=Poppins:ital,wght@0,100;0,300;0,400;0,500;1,600&display=swap");
+
+:root {
+  --green: #217906;
+  --black: #130f40;
+  --light-color: #006;
+  --box-shadow: 0 0.5rem 1.5rem rgba(0, 0, 0, 0.1);
+  --border: 0.2rem solid rgba(0, 0, 0, 0.1);
+  --outline: 0.1rem solid rgba(0, 0, 0, 0.1);
+  --outline-hover: 0.2rem solid var(--black);
+}
+
+* {
+  font-family: "Poppins", sans-serif;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  outline: none;
+  border: none;
+  text-decoration: none;
+  text-transform: capitalize;
+  transition: all 0.2s ease-in-out;
+}
+
+html {
+  font-size: 62.5%;
+  overflow-x: hidden;
+  scroll-behavior: smooth;
+  scroll-padding-top: 7rem;
+}
+
+body {
+  background: #eee;
+}
+
+section {
+  padding: 2rem 9%;
+}
+
+.heading {
+  text-align: center;
+  padding: 2rem 0 3rem;
+  font-size: 3.5rem;
+  color: var(--black);
+}
+
+.heading span {
+  background: var(--green);
+  color: #fff;
+  display: inline-block;
+  padding: 0.5rem 3rem;
+  clip-path: polygon(100% 0, 93% 50%, 100% 99%, 0% 100%, 7% 50%, 0% 0%);
+}
+
+.btn {
+  margin-top: 1rem;
+  display: inline-block;
+  padding: 0.8rem 3rem;
+  font-size: 1.7rem;
+  border-radius: 0.5rem;
+  border: 0.2rem solid var(--black);
+  color: var(--black);
+  background: none;
+  cursor: pointer;
+  transition: background 0.3s, color 0.3s;
+}
+
+.btn:hover {
+  background: var(--green);
+  color: #fff;
+}
+
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 2rem 9%;
+  background: #fff;
+  box-shadow: var(--box-shadow);
+}
+
+.header .logo {
+  font-size: 2.5rem;
+  font-weight: bold;
+  color: var(--black);
+}
+
+.header .logo i {
+  color: var(--green);
+}
+
+.header .navbar a {
+  font-size: 1.7rem;
+  margin: 0 1rem;
+  color: var(--black);
+  transition: color 0.3s;
+}
+
+.header .navbar a:hover {
+  color: var(--green);
+}
+
+.header .icons div {
+  height: 4.5rem;
+  width: 4.5rem;
+  line-height: 4.5rem;
+  border-radius: 0.5rem;
+  background: #eee;
+  color: var(--black);
+  font-size: 2rem;
+  margin-right: 0.3rem;
+  cursor: pointer;
+  text-align: center;
+  transition: background 0.3s, color 0.3s;
+}
+
+.header .icons div:hover {
+  background: var(--green);
+  color: #fff;
+}
+
+#menu-btn {
+  display: none;
+}
+
+.header .search-form,
+.header .shopping-cart,
+.header .login-form {
+  position: absolute;
+  top: 110%;
+  right: -110%;
+  width: 50rem;
+  border-radius: 0.5rem;
+  box-shadow: var(--box-shadow);
+  background: #fff;
+  transition: right 0.4s linear;
+}
+
+.header .search-form.active,
+.header .shopping-cart.active,
+.header .login-form.active {
+  right: 2rem;
+}
+
+.header .search-form {
+  height: 5rem;
+  display: flex;
+  align-items: center;
+}
+
+.header .search-form input,
+.header .shopping-cart .btn {
+  height: 100%;
+}
+
+.header .search-form input {
+  width: 100%;
+  background: none;
+  font-size: 1.6rem;
+  color: var(--black);
+  padding: 0 1.5rem;
+}
+
+.header .search-form label {
+  font-size: 2.2rem;
+  padding-right: 1.5rem;
+  color: var(--black);
+  cursor: pointer;
+  transition: color 0.3s;
+}
+
+.header .search-form label:hover {
+  color: var(--green);
+}
+
+.header .shopping-cart {
+  width: 35rem;
+  padding: 1rem;
+}
+
+.header .shopping-cart .box {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin: 1rem 0;
+  position: relative;
+}
+
+.header .shopping-cart .box img {
+  height: 10rem;
+}
+
+.header .shopping-cart .box .fa-trash {
+  font-size: 2rem;
+  position: absolute;
+  top: 50%;
+  right: 2rem;
+  cursor: pointer;
+  color: var(--light-color);
+  transform: translateY(-50%);
+  transition: color 0.3s;
+}
+
+.header .shopping-cart .box .fa-trash:hover {
+  color: var(--green);
+}
+
+.header .shopping-cart .box .content h3 {
+  color: var(--black);
+  font-size: 1.7rem;
+  padding-bottom: 1rem;
+}
+
+.header .shopping-cart .box .content span {
+  color: var(--light-color);
+  font-size: 1.6rem;
+}
+
+.header .shopping-cart .box .content .quantity {
+  padding-left: 1rem;
+}
+
+.header .shopping-cart .total {
+  font-size: 2.5rem;
+  padding: 1rem 0;
+  text-align: center;
+  color: var(--black);
+}
+
+.header .login-form {
+  width: 30rem;
+  padding: 2rem;
+  text-align: center;
+}
+
+.header .login-form h3 {
+  font-size: 2.5rem;
+  text-transform: uppercase;
+  color: var(--black);
+}
+
+.header .login-form .box {
+  width: 100%;
+  margin: 0.7rem 0;
+  background: #eee;
+  border-radius: 0.5rem;
+  padding: 1rem;
+  font-size: 1.6rem;
+  color: var(--black);
+}
+
+.header .login-form p {
+  font-size: 1.4rem;
+  padding: 0.5rem 0;
+  color: var(--light-color);
+}
+
+.header .login-form p a {
+  color: var(--green);
+  text-decoration: underline;
+}
+
+.home {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: url(../images/banner-bg.jpg) no-repeat center/cover;
+  padding: 17rem 0 10rem;
+}
+
+.home .content {
+  text-align: center;
+  width: 60rem;
+}
+
+.home .content h3 {
+  color: var(--black);
+  font-size: 3rem;
+}
+
+.home .content h3 span {
+  color: var(--green);
+}
+
+.home .content p {
+  color: var(--light-color);
+  font-size: 1.7rem;
+  padding: 1rem 0;
+  line-height: 1.8;
+}
+
+.features .box-container,
+.products .product-slider,
+.categories .box-container,
+.review .review-slider,
+.blogs .box-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(30rem, 1fr));
+  gap: 1.5rem;
+  padding: 1rem;
+}
+
+.features .box-container .box,
+.products .product-slider .box,
+.categories .box-container .box,
+.review .review-slider .box,
+.blogs .box-container .box {
+  padding: 3rem 2rem;
+  border-radius: 0.5rem;
+  background: #fff;
+  box-shadow: var(--box-shadow);
+  outline: var(--outline);
+  outline-offset: -1rem;
+  transition: outline-offset 0.2s linear;
+}
+
+.features .box-container .box:hover,
+.products .product-slider .box:hover,
+.categories .box-container .box:hover,
+.review .review-slider .box:hover {
+  outline: var(--outline-hover);
+  outline-offset: 0rem;
+}
+
+.features .box-container .box img,
+.products .product-slider .box img,
+.categories .box-container .box img,
+.review .review-slider .box img {
+  height: 15rem;
+}
+
+.features .box-container .box h3,
+.products .product-slider .box h3,
+.categories .box-container .box h3,
+.review .review-slider .box h3 {
+  font-size: 2rem;
+  padding: 1rem 0;
+  color: var(--black);
+}
+
+.products .product-slider .box .price,
+.review .review-slider .box .price {
+  font-size: 1.5rem;
+  padding: 1rem 0;
+  color: var(--green);
+}
+
+.blogs .box-container .box {
+  padding: 3rem;
+}
+
+.blogs .box-container .box img {
+  height: 20rem;
+}
+
+.blogs .box-container .box h3 {
+  font-size: 2rem;
+  padding: 1rem 0;
+}
+
+.blogs .box-container .box p {
+  color: var(--light-color);
+  font-size: 1.6rem;
+  line-height: 1.8;
+}
+
+.blogs .box-container .box .btn {
+  margin-top: 1rem;
+}
+
+.footer {
+  padding: 2rem 9%;
+  background: var(--black);
+  color: #fff;
+  text-align: center;
+}
+
+.footer .logo {
+  font-size: 2.5rem;
+  font-weight: bold;
+  color: var(--green);
+}
+
+.footer p {
+  font-size: 1.5rem;
+}
+
+.footer .social-icons {
+  margin: 1rem 0;
+}
+
+.footer .social-icons a {
+  margin: 0 1rem;
+  color: #fff;
+  font-size: 2rem;
+}
+
+.footer .social-icons a:hover {
+  color: var(--green);
+}
+
+/* Media Queries */
+
+@media (max-width: 768px) {
+  .header .navbar a {
+    font-size: 1.5rem;
+  }
+
+  .header .icons div {
+    height: 4rem;
+    width: 4rem;
+    font-size: 1.5rem;
+  }
+
+  .home .content h3 {
+    font-size: 2.5rem;
+  }
+
+  .home .content p {
+    font-size: 1.5rem;
+  }
+
+  .features .box-container .box h3,
+  .products .product-slider .box h3,
+  .categories .box-container .box h3,
+  .review .review-slider .box h3 {
+    font-size: 1.8rem;
+  }
+
+  .footer p {
+    font-size: 1.2rem;
+  }
+}
+
+@media (max-width: 500px) {
+  .header .navbar a {
+    font-size: 1.3rem;
+  }
+
+  .home .content h3 {
+    font-size: 2rem;
+  }
+
+  .home .content p {
+    font-size: 1.3rem;
+  }
+
+  .features .box-container .box h3,
+  .products .product-slider .box h3,
+  .categories .box-container .box h3,
+  .review .review-slider .box h3 {
+    font-size: 1.5rem;
+  }
+
+  .footer p {
+    font-size: 1rem;
+  }
+}
